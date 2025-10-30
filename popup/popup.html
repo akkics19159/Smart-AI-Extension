@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartNotes AI</title>
+    <link rel="stylesheet" href="../assets/styles/popup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <div>
+                    <h1>🤖 SmartNotes AI</h1>
+                    <div style="font-size: 12px; color: #666; margin-top: 2px;">Auto-detects content from screen/videos</div>
+                </div>
+                <div style="display: flex; gap: 5px;">
+                    <button id="manualBtn" class="btn btn-secondary" style="font-size: 11px; padding: 4px 8px;" title="Select text manually">
+                        ✏️ Manual
+                    </button>
+                    <button id="settingsBtn" class="btn btn-secondary" style="font-size: 11px; padding: 4px 8px;">
+                        ⚙️ Settings
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="tabs">
+        <button class="tab active" data-tab="summary">Summary</button>
+        <button class="tab" data-tab="flashcards">Flashcards</button>
+        <button class="tab" data-tab="quiz">Quiz</button>
+            <button class="tab" data-tab="saved">Saved Items</button>
+        </div>
+
+        <div id="output" class="output">
+        <div id="summaryTab" class="tab-content active">
+        <div id="summaryContent" class="content-area">
+        <p class="placeholder">Generating summary...</p>
+        </div>
+            <div style="text-align: center; margin-top: 10px; display: flex; gap: 5px; justify-content: center;">
+            <button id="saveSummaryBtn" class="btn btn-secondary" style="font-size: 12px; padding: 5px 10px;">💾 Save</button>
+                <button id="speakSummaryBtn" class="btn btn-secondary" style="font-size: 12px; padding: 5px 10px;">🔊 Speak</button>
+                </div>
+        </div>
+        <div id="flashcardsTab" class="tab-content">
+            <div id="flashcardsContent" class="content-area">
+                <p class="placeholder">Generating flashcards...</p>
+        </div>
+        <div style="text-align: center; margin-top: 10px;">
+            <button id="saveFlashcardBtn" class="btn btn-secondary" style="font-size: 12px; padding: 5px 10px;">💾 Save Flashcard</button>
+            </div>
+            </div>
+            <div id="quizTab" class="tab-content">
+                <div id="quizContent" class="content-area">
+                    <p class="placeholder">Generating quiz...</p>
+                </div>
+                <div style="text-align: center; margin-top: 10px;">
+                <button id="saveQuizBtn" class="btn btn-secondary" style="font-size: 12px; padding: 5px 10px;">💾 Save Quiz</button>
+                </div>
+                </div>
+                    <div id="savedTab" class="tab-content">
+                <div id="savedContent" class="content-area">
+                    <p class="placeholder">Loading saved items...</p>
+                </div>
+                <div style="text-align: center; margin-top: 10px;">
+                    <button id="refreshSavedBtn" class="btn btn-secondary" style="font-size: 12px; padding: 5px 10px;">🔄 Refresh</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p id="loadingText">Processing with On-Device AI...</p>
+        <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+        </div>
+        </div>
+
+        <div class="success-overlay" id="successOverlay">
+        <div class="success-message">
+        <div class="celebration-particles">
+            <span>🎉</span><span>✨</span><span>🚀</span><span>💡</span><span>🎊</span>
+            <span>🌟</span><span>🎯</span><span>📚</span><span>🤖</span><span>🎉</span>
+        </div>
+            <div style="font-size: 48px; margin-bottom: 10px; animation: bounce 1s ease;">🎉</div>
+            <h3>AI Processing Complete!</h3>
+            <p>Your content has been analyzed and ready for learning.</p>
+            <button id="closeSuccessBtn" class="btn btn-primary" style="margin-top: 10px; animation: pulse 2s infinite; position: relative; z-index: 10;">Got it!</button>
+        </div>
+        </div>
+
+        <div style="text-align: center; font-size: 11px; color: #666; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 10px;">
+            <strong>Keyboard Shortcuts:</strong><br>
+            Alt+S: Summarize | Alt+F: Flashcard | Alt+Q: Quiz | Alt+D: Dashboard
+        </div>
+    </div>
+
+    <script type="module" src="../scripts/youtubeManager.js"></script>
+    <script type="module" src="../scripts/onDeviceAI.js"></script>
+    <script type="module" src="popup.js"></script>
+</body>
+</html>

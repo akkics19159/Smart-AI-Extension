@@ -1,0 +1,74 @@
+{
+  "manifest_version": 3,
+  "name": "SmartNotes AI - Free Learning Extension",
+  "version": "1.0.0",
+  "description": "Free AI-powered learning tool. Automatically analyzes web content and generates summaries, flashcards, and quizzes using on-device AI. No subscriptions or API keys required.",
+  "permissions": [
+  "storage",
+  "activeTab",
+  "contextMenus",
+  "notifications",
+  "tts",
+  "offscreen",
+   "scripting",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://youtube-transcript-api.vercel.app/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+  "default_popup": "popup/popup.html",
+  "default_title": "SmartNotes AI - Free Learning"
+  },
+  "commands": {
+    "summarize-selection": {
+      "suggested_key": {
+        "default": "Alt+S",
+        "mac": "Alt+S"
+      },
+      "description": "Summarize selected text with AI"
+    },
+    "generate-flashcard": {
+      "suggested_key": {
+        "default": "Alt+F",
+        "mac": "Alt+F"
+      },
+      "description": "Generate flashcard from selection"
+    },
+    "create-quiz": {
+      "suggested_key": {
+        "default": "Alt+Q",
+        "mac": "Alt+Q"
+      },
+      "description": "Create quiz from selected text"
+    },
+    "open-dashboard": {
+      "suggested_key": {
+        "default": "Alt+D",
+        "mac": "Alt+D"
+      },
+      "description": "Open learning dashboard"
+    }
+  },
+  
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["settings.html", "dashboard.html", "study-session.html", "social.html", "analytics.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "minimum_chrome_version": "116"
+}

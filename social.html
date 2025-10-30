@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartNotes AI - Social</title>
+    <link rel="stylesheet" href="assets/styles/popup.css">
+    <style>
+        .social-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .leaderboard {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: background 0.2s ease;
+        }
+
+        .leaderboard-item:hover {
+            background: #f8f9fa;
+        }
+
+        .rank {
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .user-points {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .study-groups {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .group-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .group-info {
+            flex: 1;
+        }
+
+        .group-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .group-members {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-join {
+            background: #4285f4;
+            color: white;
+        }
+
+        .btn-create {
+            background: #34a853;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="social-container">
+        <h1 style="text-align: center; margin-bottom: 30px;">Social Features</h1>
+
+        <div class="leaderboard">
+            <h2>🏆 Leaderboard</h2>
+            <div class="leaderboard-item">
+                <div class="rank">1</div>
+                <div class="user-info">
+                    <div class="user-name">Alice Johnson</div>
+                    <div class="user-points">2,450 points</div>
+                </div>
+            </div>
+            <div class="leaderboard-item">
+                <div class="rank">2</div>
+                <div class="user-info">
+                    <div class="user-name">Bob Smith</div>
+                    <div class="user-points">2,120 points</div>
+                </div>
+            </div>
+            <div class="leaderboard-item">
+                <div class="rank">3</div>
+                <div class="user-info">
+                    <div class="user-name">You</div>
+                    <div class="user-points">1,890 points</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="study-groups">
+            <h2>📚 Study Groups</h2>
+            <div class="group-item">
+                <div class="group-info">
+                    <div class="group-name">JEE Physics 2025</div>
+                    <div class="group-members">12 members</div>
+                </div>
+                <button class="btn btn-join">Join</button>
+            </div>
+            <div class="group-item">
+                <div class="group-info">
+                    <div class="group-name">UPSC History Study Group</div>
+                    <div class="group-members">8 members</div>
+                </div>
+                <button class="btn btn-join">Join</button>
+            </div>
+            <div class="group-item">
+                <div class="group-info">
+                    <div class="group-name">Medical Entrance Prep</div>
+                    <div class="group-members">15 members</div>
+                </div>
+                <button class="btn btn-join">Join</button>
+            </div>
+
+            <button class="btn btn-create">+ Create New Study Group</button>
+        </div>
+    </div>
+
+    <script>
+        // Add event listeners for buttons
+        document.querySelectorAll('.btn-join').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('Join group functionality coming soon!');
+            });
+        });
+
+        document.querySelector('.btn-create').addEventListener('click', function() {
+            alert('Create group functionality coming soon!');
+        });
+    </script>
+</body>
+</html>

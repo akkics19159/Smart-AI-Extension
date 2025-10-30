@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartNotes AI - Study Session</title>
+    <link rel="stylesheet" href="assets/styles/popup.css">
+    <style>
+        .session-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .session-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .flashcard {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .flashcard:hover {
+            transform: translateY(-2px);
+        }
+
+        .flashcard.flipped .answer {
+            display: block;
+        }
+
+        .flashcard.flipped .question {
+            display: none;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            display: none;
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-correct {
+            background: #34a853;
+            color: white;
+        }
+
+        .btn-incorrect {
+            background: #ea4335;
+            color: white;
+        }
+
+        .btn-next {
+            background: #4285f4;
+            color: white;
+        }
+
+        .progress {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="session-container">
+        <div class="session-header">
+            <h1>Study Session</h1>
+            <div class="progress" id="progress">Card 1 of 10</div>
+        </div>
+
+        <div class="flashcard" id="currentCard" onclick="flipCard()">
+            <div class="question" id="question">Click to reveal the answer</div>
+            <div class="answer" id="answer">This is the answer to the flashcard question.</div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-incorrect" onclick="markIncorrect()">Incorrect</button>
+            <button class="btn btn-correct" onclick="markCorrect()">Correct</button>
+            <button class="btn btn-next" onclick="nextCard()">Next Card</button>
+        </div>
+    </div>
+
+    <script>
+        let currentCardIndex = 0;
+        let flashcards = [
+            { question: "What is the capital of France?", answer: "Paris" },
+            { question: "What is 2 + 2?", answer: "4" },
+            { question: "What color is the sky?", answer: "Blue" }
+        ];
+
+        function updateCard() {
+            if (currentCardIndex < flashcards.length) {
+                const card = flashcards[currentCardIndex];
+                document.getElementById('question').textContent = card.question;
+                document.getElementById('answer').textContent = card.answer;
+                document.getElementById('progress').textContent =
+                    `Card ${currentCardIndex + 1} of ${flashcards.length}`;
+                document.getElementById('currentCard').classList.remove('flipped');
+            }
+        }
+
+        function flipCard() {
+            document.getElementById('currentCard').classList.toggle('flipped');
+        }
+
+        function markCorrect() {
+            console.log('Marked as correct');
+            nextCard();
+        }
+
+        function markIncorrect() {
+            console.log('Marked as incorrect');
+            nextCard();
+        }
+
+        function nextCard() {
+            currentCardIndex++;
+            if (currentCardIndex >= flashcards.length) {
+                alert('Study session completed!');
+                currentCardIndex = 0;
+            }
+            updateCard();
+        }
+
+        // Initialize
+        updateCard();
+    </script>
+</body>
+</html>
