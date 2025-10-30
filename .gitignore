@@ -1,0 +1,8 @@
+*.zip
+*.tar.gz
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+.cache/
