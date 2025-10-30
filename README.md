@@ -166,7 +166,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **GitHub Issues**: [Report bugs or request features](https://github.com/your-repo/issues)
 - **Discussions**: [Join community discussions](https://github.com/your-repo/discussions)
-- **Email**: support@smartnotes-ai.com (placeholder)
+- **Email**: akashkumar.solanki@gmail.com (placeholder)
 
 ## 🔗 Links
 
