@@ -4,3 +4,4 @@
 - Initial public release
 - AI summarization, flashcards, quiz generation
 - Offline support with on-device models
+- Dashboard, social features, TTS, OCR
